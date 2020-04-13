@@ -33,8 +33,10 @@
     "body-parser": "^1.19.0",
     "bootstrap": "4.3.1",
     "express": "^4.17.1",
+    "googleapis": "^48.0.0",
     "jquery": "3.4.1",
-    "jquery.easing": "^1.4.1"
+    "jquery.easing": "^1.4.1",
+    "noty": "^3.2.0-beta"
   },
   "devDependencies": {
     "browser-sync": "2.26.7",
