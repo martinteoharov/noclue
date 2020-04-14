@@ -8,7 +8,7 @@ const getHTML = () => {
 	return $('html').html();
 }
 
-const toggleGodMode = (bool) => {
+const toggleGodMode = (bool, notif) => {
 	console.log(bool);
 	let str;
 	if(bool) 
@@ -49,16 +49,27 @@ const toggleGodMode = (bool) => {
 	let notyType;
 	bool ? notyType = 'error' : notyType = 'success';
 	bool ? str = 'GOD Mode: ON' : str = 'GOD Mode: OFF';
-	newNoty(notyType, str);
+	notif ? newNoty(notyType, str) : null;
 }
 btnSavePage.onclick = () => {
 	console.log('btnSavePage:');
-	toggleGodMode(false);
+	godState ? toggleGodMode(false, 0) : null;
 	const HTML = getHTML();
-	fetchPost('/saveHTML', {html: HTML}).then((res) => {
-		console.log('/saveHTML:', res.status);
-		newNoty('success', "index.html updated");
+	fetchPostAuth('/users/saveHTML', {html: HTML}, localStorage['JWT']).then((res) => {
+		console.log(res);
+		if(res.success){
+			console.log('/users/saveHTML:', res.status);
+			newNoty('success', "index.html updated");
+			newNoty('success', 'GOD Mode: OFF');
+		}
+		else
+			newNoty('error', "You're not authorized to do that");
 	});
 }
-btnToggleGod.onclick = () => toggleGodMode(!godState);
+btnToggleGod.onclick = () => {
+	if(localStorage['JWT'])
+		toggleGodMode(!godState, 1);
+	else
+			newNoty('error', "You're not authorized to do that");
+}
 

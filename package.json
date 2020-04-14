@@ -32,11 +32,16 @@
     "@fortawesome/fontawesome-free": "5.10.2",
     "body-parser": "^1.19.0",
     "bootstrap": "4.3.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
     "googleapis": "^48.0.0",
     "jquery": "3.4.1",
     "jquery.easing": "^1.4.1",
-    "noty": "^3.2.0-beta"
+    "jsonwebtoken": "^8.5.1",
+    "noty": "^3.2.0-beta",
+    "rootpath": "^0.1.2"
   },
   "devDependencies": {
     "browser-sync": "2.26.7",

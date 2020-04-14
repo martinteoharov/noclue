@@ -1,25 +1,40 @@
 /*server.js*/
-const port       = 3000;
-const express    = require('express');
-const bodyParser = require('body-parser');
-const app        = express();
-const http       = require('http').createServer(app);
-const fs         = require('fs');
+require('rootpath')();
+const cors = require('cors');
+
+const port         = 3000;
+const express      = require('express');
+const bodyParser   = require('body-parser');
+const app          = express();
+const http         = require('http').createServer(app);
+const fs           = require('fs');
+const basicAuth    = require('_helpers/basic_auth.js');
+const errorHandler = require('_helpers/error_handler.js');
 
 app.use(bodyParser.json());
 app.use(express.static('static'));
+app.use(cors());
+
+// use basic HTTP auth to secure the api
+app.use(basicAuth);
+
+// api routes
+app.use('/users', require('users/users.controller.js'));
+
+// global error handler
+app.use(errorHandler);
 
 app.post('/login', (req, res) => {
 	console.log(req.body.name);
 });
-app.post('/saveHTML', (req, res) => {
+app.post('/users/saveHTML', (req, res) => {
 	const html = req.body.html;
 	fs.truncate('index.html', 0, () => {console.log('index.html truncated')})
 	fs.writeFile('static/index.html', html, (err) => {
 		if (err) return console.log(err);
 		console.log('index.html filled');
 	});
-	res.status(200).send({ message: 'Written' });
+	res.status(200).send({ success: true});
 
 });
 
