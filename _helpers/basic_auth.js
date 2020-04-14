@@ -13,8 +13,8 @@ const basicAuth = async (req, res, next) => {
 		return next();
 	}
 
-	// check for basic auth header
-	if (!req.headers.jwt && req.headers.jwt.indexOf('jwt ') === -1) {
+	// check for jwt auth header
+	if (!req.headers.jwt || req.headers.jwt.indexOf('jwt ') === -1) {
 		return res.status(401).json({ success: false, message: 'Missing Authorization Header' });
 	}
 

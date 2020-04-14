@@ -70,6 +70,6 @@ btnToggleGod.onclick = () => {
 	if(localStorage['JWT'])
 		toggleGodMode(!godState, 1);
 	else
-			newNoty('error', "You're not authorized to do that");
+		newNoty('error', "You're not authorized to do that");
 }
 

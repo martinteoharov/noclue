@@ -9,8 +9,11 @@ btnSubmit.onclick = (e) => {
 	fetchPost('/users/authenticate', credentials).then((res) => {
 		console.log(res);
 		if(res.success){
+			newNoty('success', 'Logged in successfuly, redirecting..');
+			console.log(res);
 			localStorage.setItem('JWT', res.token);
-			window.location.href = '/';
+			localStorage.setItem('username', res.user.username);
+			setTimeout(() => window.location.href = '/', 1000);
 		}
 		else {
 			newNoty('error', 'Wrong Credentials');

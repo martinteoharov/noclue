@@ -17,16 +17,11 @@ app.use(cors());
 
 // use basic HTTP auth to secure the api
 app.use(basicAuth);
-
 // api routes
 app.use('/users', require('users/users.controller.js'));
-
 // global error handler
 app.use(errorHandler);
 
-app.post('/login', (req, res) => {
-	console.log(req.body.name);
-});
 app.post('/users/saveHTML', (req, res) => {
 	const html = req.body.html;
 	fs.truncate('index.html', 0, () => {console.log('index.html truncated')})
@@ -35,7 +30,10 @@ app.post('/users/saveHTML', (req, res) => {
 		console.log('index.html filled');
 	});
 	res.status(200).send({ success: true});
-
+});
+app.post('/users/sessionCheck', (req, res) => {
+	console.log('session check:');
+	res.status(200).send({ success: true, user: req.user});
 });
 
 const server = http.listen(port, () => {
