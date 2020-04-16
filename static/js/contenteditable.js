@@ -1,14 +1,30 @@
 const btnToggleGod = document.getElementById('toggleGod');
 const btnSavePage  = document.getElementById('savePageButton');
 let godState = false; // get current god state by checking if btnToggleGod is editable
+let savingState = 0; // 0 - not saving currently, 1 - saving is initiated
 console.log(godState);
 
 const getHTML = () => {
 	console.log('getHTML:');
 	return $('html').html();
 }
+const savePage = (HTML) => {
+	console.log('savingState:', savingState);
+	fetchPostAuth('/users/saveHTML', {html: HTML}, localStorage['JWT']).then((res) => {
+		console.log(res);
+		if(res.success){
+			console.log('/users/saveHTML:', res.status);
+			newNoty('success', "index.html updated");
+			newNoty('success', 'GOD Mode: OFF');
+		}
+		else
+			newNoty('error', "You're not authorized to do that");
 
-const toggleGodMode = (bool, notif) => {
+		savingState = 0;
+	});
+}
+
+const toggleGodMode = (bool) => {
 	console.log(bool);
 	let str;
 	if(bool) 
@@ -45,30 +61,23 @@ const toggleGodMode = (bool, notif) => {
 	}
 
 	godState = bool;
-
-	let notyType;
-	bool ? notyType = 'error' : notyType = 'success';
-	bool ? str = 'GOD Mode: ON' : str = 'GOD Mode: OFF';
-	notif ? newNoty(notyType, str) : null;
+	if(godState)
+		newNoty('warning', 'GOD Mode: ON')
+	else
+		newNoty('success', 'GOD Mode: OFF')
 }
 btnSavePage.onclick = () => {
-	console.log('btnSavePage:');
-	godState ? toggleGodMode(false, 0) : null;
-	const HTML = getHTML();
-	fetchPostAuth('/users/saveHTML', {html: HTML}, localStorage['JWT']).then((res) => {
-		console.log(res);
-		if(res.success){
-			console.log('/users/saveHTML:', res.status);
-			newNoty('success', "index.html updated");
-			newNoty('success', 'GOD Mode: OFF');
-		}
-		else
-			newNoty('error', "You're not authorized to do that");
-	});
+	if(savingState == 0){
+		console.log('btnSavePage:');
+		toggleGodMode(false);
+		deleteAllNoty();
+		savingState = 1;
+		setTimeout(() => savePage(getHTML()), 1000);
+	}
 }
 btnToggleGod.onclick = () => {
 	if(localStorage['JWT'])
-		toggleGodMode(!godState, 1);
+		toggleGodMode(!godState);
 	else
 		newNoty('error', "You're not authorized to do that");
 }
