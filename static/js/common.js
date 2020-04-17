@@ -37,6 +37,45 @@ const fetchPostAuth = async (url, body, JWT) => {
         });
         return await response.json(); // parses JSON response into native JavaScript objects
 }
+
+const base64UserPass = (username, password) => {
+	const _base64UserPass = 'Basic ' + btoa(username + ':' + password);
+	return _base64UserPass;
+}
+const inputValidation = (type, val) => {
+	switch(type){
+
+		case 'first-name':
+			return true;
+			break;
+
+		case 'last-name':
+			return true;
+			break;
+
+		case 'email':
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(val))
+				return (true)
+			newNoty('error', 'You have entered an invalid email address!');
+			break;
+
+		case 'username':
+			if (/^[0-9a-zA-Z_.-]+$/.test(val))
+				return (true)
+			newNoty('error', 'You have entered an invalid username!');
+			break
+
+		case 'password':
+			if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(val))
+				return true;
+			newNoty('error', 'You have enetered an invalid password!');
+
+				break;
+	}
+
+	return false;
+	
+}
 // < ---- AUTHENTICATION END ---- >
 
 
@@ -79,9 +118,3 @@ const newNoty = (type, message) => {
 
 
 
-// < ---- CRYPT ---- >
-const base64UserPass = (username, password) => {
-	const _base64UserPass = 'Basic ' + btoa(username + ':' + password);
-	return _base64UserPass;
-}
-// < ---- CRYPT END ---- >

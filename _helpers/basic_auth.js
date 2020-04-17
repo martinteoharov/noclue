@@ -12,6 +12,10 @@ const basicAuth = async (req, res, next) => {
 		console.log('basicAuth:login:')
 		return next();
 	}
+	if (req.path === '/users/signUp') {
+		console.log('basicAuth:login:')
+		return next();
+	}
 
 	// check for jwt auth header
 	if (!req.headers.jwt || req.headers.jwt.indexOf('jwt ') === -1) {

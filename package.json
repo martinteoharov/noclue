@@ -1,11 +1,11 @@
 {
-  "title": "Agency",
-  "name": "startbootstrap-agency",
+  "title": "Noclue",
+  "name": "donastavreva-noclue",
   "version": "5.2.2",
   "scripts": {
     "start": "gulp watch"
   },
-  "description": "Agency is a one page HTML theme for Bootstrap.",
+  "description": "Noclue",
   "keywords": [
     "css",
     "sass",
@@ -14,33 +14,15 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/template-overviews/agency",
-  "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-agency/issues",
-    "email": "feedback@startbootstrap.com"
-  },
-  "license": "MIT",
-  "author": "Start Bootstrap",
-  "contributors": [
-    "David Miller (http://davidmiller.io/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BlackrockDigital/startbootstrap-agency.git"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.10.2",
     "body-parser": "^1.19.0",
-    "bootstrap": "4.3.1",
-    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.3",
     "googleapis": "^48.0.0",
     "jquery": "3.4.1",
     "jquery.easing": "^1.4.1",
     "jsonwebtoken": "^8.5.1",
-    "noty": "^3.2.0-beta",
     "rootpath": "^0.1.2"
   },
   "devDependencies": {

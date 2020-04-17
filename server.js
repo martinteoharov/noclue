@@ -15,12 +15,9 @@ app.use(bodyParser.json());
 app.use(express.static('static'));
 app.use(cors());
 
-// use basic HTTP auth to secure the api
-app.use(basicAuth);
-// api routes
-app.use('/users', require('users/users.controller.js'));
-// global error handler
-app.use(errorHandler);
+app.use(basicAuth); // use basic HTTP auth to secure the api
+app.use('/users', require('users/users.controller.js')); // api routes
+app.use(errorHandler); // global error handler
 
 app.post('/users/saveHTML', (req, res) => {
 	const html = req.body.html;

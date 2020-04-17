@@ -10,6 +10,12 @@ const authenticate = (req, res, next) => {
 
 		.catch(err => next(err));
 }
+const signUp = (req, res, next) => {
+	console.log(req.body);
+	userService.signUp(req.body)
+	        .then(token => token ? res.json(token) : res.status(400).json({ success: false }))
+		.catch(err => next(err));
+}
 
 const getAll = (req, res, next) => {
 	userService.getAll()
@@ -18,6 +24,7 @@ const getAll = (req, res, next) => {
 }
 // routes
 router.post('/authenticate', authenticate);
+router.post('/signUp', signUp);
 router.get('/', getAll);
 
 module.exports = router;

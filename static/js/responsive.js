@@ -19,5 +19,4 @@ if(localStorage['JWT'] != '')
 else {
 	btnLog.innerText = 'Log in';
 	btnLog.href = '/login.html';
-
 }
