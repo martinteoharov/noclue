@@ -5,15 +5,11 @@ const jwt         = require('jsonwebtoken');
 
 
 const basicAuth = async (req, res, next) => {
-	console.log(req.path);
-
 	// make authenticate path public
 	if (req.path === '/users/authenticate') {
-		console.log('basicAuth:login:')
 		return next();
 	}
 	if (req.path === '/users/signUp') {
-		console.log('basicAuth:login:')
 		return next();
 	}
 

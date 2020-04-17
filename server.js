@@ -21,6 +21,7 @@ app.use(errorHandler); // global error handler
 
 app.post('/users/saveHTML', (req, res) => {
 	const html = req.body.html;
+	console.log(res);
 	fs.truncate('index.html', 0, () => {console.log('index.html truncated')})
 	fs.writeFile('static/index.html', html, (err) => {
 		if (err) return console.log(err);

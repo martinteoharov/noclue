@@ -4,14 +4,12 @@ const userService = require('./user.service.js');
 
 
 const authenticate = (req, res, next) => {
-	console.log(req.body);
 	userService.authenticate(req.body)
 	        .then(token => token ? res.json(token) : res.status(400).json({ success: false }))
 
 		.catch(err => next(err));
 }
 const signUp = (req, res, next) => {
-	console.log(req.body);
 	userService.signUp(req.body)
 	        .then(token => token ? res.json(token) : res.status(400).json({ success: false }))
 		.catch(err => next(err));
