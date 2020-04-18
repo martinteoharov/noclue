@@ -1,68 +1,680 @@
-# [Start Bootstrap - Agency](https://startbootstrap.com/template-overviews/agency/)
+<html>
+<head>
 
-[Agency](https://startbootstrap.com/template-overviews/agency/) is a one page agency portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, a responsive timeline, and a working PHP contact form.
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-## Preview
+		<title>Dona's Art - Freelance Illustrator</title>
+		<link href="noty/lib/themes/mint.css" rel="stylesheet">
+		<link href="noty/lib/themes/relax.css" rel="stylesheet">
+		<link href="noty/lib/themes/light.css" rel="stylesheet">
+		<link href="noty/lib/themes/bootstrap-v4.css" rel="stylesheet">
+		<link href="noty/lib/noty.css" rel="stylesheet">
+		<script src="noty/lib/noty.js" type="text/javascript"></script>
 
-[![Agency Preview](https://startbootstrap.com/assets/img/screenshots/themes/agency.png)](https://blackrockdigital.github.io/startbootstrap-agency/)
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-agency/)**
+		<!-- Custom fonts for this template -->
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-## Status
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&amp;display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&amp;display=swap" rel="stylesheet">
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-agency/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-agency.svg)](https://www.npmjs.com/package/startbootstrap-agency)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-agency.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-agency)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-agency/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-agency)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-agency/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-agency?type=dev)
 
-## Download and Installation
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/agency/)
-* Install via npm: `npm i startbootstrap-agency`
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-agency.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-agency)
+		<!-- Custom styles for this template -->
+		<link href="css/agency.css" rel="stylesheet">
 
-## Usage
+	<style>
+		.fade-in {
+		  animation: fadeIn ease 0.5s;
+		  -webkit-animation: fadeIn ease 0.5s;
+		  -moz-animation: fadeIn ease 0.5s;
+		  -o-animation: fadeIn ease 0.5s;
+		  -ms-animation: fadeIn ease 0.5s;
+		}
+		.fade-out {
+		  animation: fadeOut ease 1.5s;
+		  -webkit-animation: fadeOut ease 1.5s;
+		  -moz-animation: fadeOut ease 1.5s;
+		  -o-animation: fadeOut ease 1.5s;
+		  -ms-animation: fadeOut ease 1.5s;
+		}
+		@keyframes fadeOut{
+		  0% {
+		    opacity:1;
+		    transform: translateY(0px);
+		    filter: blur(0px);
 
-### Basic Usage
+		  }
+		  50% {
+			  transform: translateY(-40px);
+		  }
+		  100% {
+		    opacity:0;
+		    transform: translateY(-60px);
+		    filter: blur(0px);
+		  }
+		}
 
-After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+		@keyframes fadeIn{
+		  0% {
+		    opacity:0;
+		    transform: translateY(60px);
+		    filter: blur(1px);
 
-### Advanced Usage
+		  }
+		  50% {
+			  transform: translateX(20px);
+		  }
+		  100% {
+		    opacity:1;
+		    transform: translateX(0px);
+		    transform: translateY(0px);
+		    filter: blur(0px);
+		  }
+		}
 
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
+		@-moz-keyframes fadeIn {
+		  0% {
+		    opacity:0;
+		    transform: translateX(-50px);
+		  }
+		  100% {
+		    opacity:1;
+		    transform: translateX(0px);
+		  }
+		}
 
-#### Gulp Tasks
+		@-webkit-keyframes fadeIn {
+		  0% {
+		    opacity:0;
+		    transform: translateX(-50px);
+		  }
+		  100% {
+		    opacity:1;
+		    transform: translateX(0px);
+		  }
+		}
 
-- `gulp` the default task that builds everything
-- `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-- `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
-- `gulp js` minifies the themes JS file
-- `gulp vendor` copies dependencies from node_modules to the vendor directory
+		@-o-keyframes fadeIn {
+		  0% {
+		    opacity:0;
+		    transform: translateX(-50px);
+		  }
+		  100% {
+		    opacity:1;
+		    transform: translateX(0px);
+		  }
+		}
 
-You must have npm installed globally in order to use this build environment.
+		@-ms-keyframes fadeIn {
+		  0% {
+		    opacity:0;
+		    transform: translateX(-50px);
+		  }
+		  100% {
+		    opacity:1;
+		    transform: translateX(0px);
+		  }
+		}
+		a.btn-light {
+			opacity: 0.8;
+			color: white;
+		}
+		.hover-effect:hover > a.btn-light{
+			opacity: 0.8;
+			color:black;
+		}
+		.hover-effect:hover > a > span > i.fa-inverse {
+			opacity: 0.8;
+			color: #7d8a81;
+			color: black;
+		}
+		.border {
+			border: 5px solid;
+		}
+		.border-dark {
+			border-color:black;
+		}
+		.border-round {
+			border-radius: 5px;
+		}
+		.bl-container {
+			position:relative;
+		}
 
-## Bugs and Issues
+		.bl-image {
+			opacity: 1;
+			display: block;
+			width: 100%;
+			height: auto;
+			transition: .5s ease;
+			backface-visibility: hidden;
+		}
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-agency/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/agency/).
+		.bl-middle {
+			transition: .5s ease;
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			text-align: center;
+		}
 
-## About
+		.bl-container:hover .bl-image {
+			opacity: 0.3;
+		}
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+		.bl-container:hover .bl-middle {
+			opacity: 1;
+		}
+		.bl-text {
+			font-family: 'Give You Glory';
+			color: black;
+			font-size: 16px;
+			padding: 16px 32px;
+		}
 
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
+* {
+	box-sizing: border-box;
+}
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+		body {
+			margin: 0;
+			font-family: Arial;
+		}
 
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+		.header {
+			text-align: center;
+			padding: 32px;
+		}
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+		.row {
+			display: -ms-flexbox; /* IE10 */
+			display: flex;
+			-ms-flex-wrap: wrap; /* IE10 */
+			flex-wrap: wrap;
+			padding: 0 4px;
+		}
 
-## Copyright and License
 
-Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-agency/blob/gh-pages/LICENSE) license.
+
+		/* Create four equal columns that sits next to each other */
+		.column {
+			-ms-flex: 25%; /* IE10 */
+			flex: 25%;
+			max-width: 25%;
+			padding: 0 4px;
+		}
+
+		.column img {
+			margin-top: 8px;
+			vertical-align: middle;
+			width: 100%;
+		}
+
+		/* Responsive layout - makes a two column-layout instead of four columns */
+		@media screen and (max-width: 800px) {
+			.column {
+				-ms-flex: 50%;
+				flex: 50%;
+				max-width: 50%;
+			}
+		}
+
+		/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+		@media screen and (max-width: 600px) {
+			.column {
+				-ms-flex: 100%;
+				flex: 100%;
+				max-width: 100%;
+			}
+		}
+	</style></head>
+	
+
+
+	<body id="page-top">
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+			<a class="nav-link js-scroll-trigger" href="#page-top"><img width="120" height="120" src="img/donalogo.png" href="#page-top"><img></a>
+			<div class="container" contenteditable="false">
+				<button class="navbar-toggler navbar-toggler-right collapsed" aria-expanded="false" aria-controls="navbarResponsive" aria-label="Toggle navigation" type="button" data-target="#navbarResponsive" data-toggle="collapse">
+					Menu
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive" contenteditable="false">
+					<ul class="navbar-nav text-uppercase ml-auto">
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#services">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#team">About Me</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger active" href="#order">Order</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" id="logButton" href="/">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Header -->
+		<header class="masthead">
+			<div class="container" contenteditable="false">
+				<div class="intro-text" contenteditable="false">
+					<div class="intro-lead-in" contenteditable="false">Dona Stavreva</div>
+					<div class="intro-heading text-uppercase" contenteditable="false">Illustrator.</div>
+					<div class="intro-heading text-uppercase" contenteditable="false"><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Check out my services</a></div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Services -->
+		<section class="page-section" id="services">
+			<div class="container" contenteditable="false">
+				<div class="row" contenteditable="false">
+					<div class="col-lg-12 text-center" contenteditable="false">
+						<h2 class="section-heading text-uppercase" contenteditable="false">Services</h2>
+						<h3 class="section-subheading text-muted" contenteditable="false">What I offer:</h3>
+					</div>
+				</div>
+				<div class="row text-center" contenteditable="false">
+					<div class="col-md-4 hover-effect" contenteditable="false">
+						<a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-paint-brush fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+						<h4 class="service-heading">Personalised Illustration</h4>
+						<p class="text-muted" contenteditable="false">Im a big bebee</p>
+						<a class="btn btn-light btn-primary btn-xl text-uppercase" href="#portfolioModal1" data-toggle="modal">Tell Me More</a>
+					</div>
+					<div class="col-md-4 hover-effect" contenteditable="false">
+						<a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-street-view fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+						<h4 class="service-heading">Character Design</h4>
+						<p class="text-muted" contenteditable="false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+						<a class="btn btn-light btn-primary btn-xl text-uppercase" href="#portfolioModal2" data-toggle="modal">Tell Me More</a>
+					</div>
+					<div class="col-md-4 hover-effect" contenteditable="false">
+						<a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-dice-d20 fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+						<h4 class="service-heading">Anything</h4>
+						<p class="text-muted" contenteditable="false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+						<a class="btn btn-light btn-primary btn-xl text-uppercase" href="#portfolioModal3" data-toggle="modal">Tell Me More</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio Grid -->
+		<section class="bg-light page-section" id="portfolio">
+			<div class="container" contenteditable="false">
+				<div class="row" contenteditable="false">
+					<div class="col-lg-12 text-center" contenteditable="false">
+						<h2 class="section-heading text-uppercase" contenteditable="false">Portfolio</h2>
+						<h3 class="section-subheading text-muted" contenteditable="false">Here is some of my past work.</h3>
+					</div>
+					<div class="column" contenteditable="false">
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" alt="" src="img/portfolio/12.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">John Doe</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/14.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">pencil sketch</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/13.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">John Doe</div>
+							</div>
+						</div>
+					</div>
+					<div class="column" contenteditable="false">
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/6.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">John Doe</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/3.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">John Doe</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/15.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">Love.<br><br>-pencil sketch<br></div>
+							</div>
+						</div>
+					</div>
+					<div class="column" contenteditable="false">
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/7.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">tattoo design</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/9.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">Nature.<br><br>-watercolours<br></div>
+							</div>
+						</div>
+					</div>
+					<div class="column" contenteditable="false">
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/8.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">John Doe</div>
+							</div>
+						</div>
+						<div class="bl-container" contenteditable="false">
+							<img class="bl-image" style="width:100%" src="img/portfolio/16.jpg">
+							<div class="bl-middle" contenteditable="false">
+								<div class="bl-text" contenteditable="false">Cupid and Psyche<br><br>-pencil sketch<br></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- PORFOLIO MODAL -->
+		<div tabindex="-1" class="portfolio-modal modal fade" id="portfolioModal1" role="dialog" aria-hidden="true" style="display: none;" contenteditable="false">
+			<div class="modal-dialog" contenteditable="false">
+				<div class="modal-content" style="width:60%; margin-left:20%" contenteditable="false">
+					<div class="close-modal" contenteditable="false" data-dismiss="modal">
+						<div class="lr" contenteditable="false">
+							<div class="rl" contenteditable="false"></div>
+						</div>
+					</div>
+					<div class="container" contenteditable="false">
+						<div class="row" contenteditable="false">
+							<div class="col-lg-8 mx-auto" contenteditable="false">
+								<div class="modal-body" contenteditable="false">
+									<!-- Project Details Go Here -->
+									<h2 class="text-uppercase" contenteditable="false">Personalised Illustration</h2>
+									<p class="item-intro text-muted" contenteditable="false">Lorem ipsum dolor sit amet consectetur.</p>
+									<img class="img-fluid d-block mx-auto" alt="" src="img/portfolio/7.jpg">
+									<p contenteditable="false">Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+									<ul class="list-inline">
+										<li>Date: January 2017</li>
+										<li>Client: Threads</li>
+										<li>Category: Illustration</li>
+									</ul>
+									<button class="btn btn-primary" type="button" data-dismiss="modal">
+										<i class="fas fa-times"></i>
+										Close Project</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div tabindex="-1" class="portfolio-modal modal fade" id="portfolioModal2" role="dialog" aria-hidden="true" style="display: none;" contenteditable="false">
+			<div class="modal-dialog" contenteditable="false">
+				<div class="modal-content" contenteditable="false">
+					<div class="close-modal" contenteditable="false" data-dismiss="modal">
+						<div class="lr" contenteditable="false">
+							<div class="rl" contenteditable="false"></div>
+						</div>
+					</div>
+					<div class="container" contenteditable="false">
+						<div class="row" contenteditable="false">
+							<div class="col-lg-8 mx-auto" contenteditable="false">
+								<div class="modal-body" contenteditable="false">
+									<!-- Project Details Go Here -->
+									<h2 class="text-uppercase" contenteditable="false">Character Design</h2>
+									<p class="item-intro text-muted" contenteditable="false">Lorem ipsum dolor sit amet consectetur.</p>
+									<img class="img-fluid d-block mx-auto" alt="" src="img/characterdesign.jpg">
+									<p contenteditable="false">Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+									<ul class="list-inline">
+										<li>Date: January 2017</li>
+										<li>Client: Threads</li>
+										<li>Category: Illustration</li>
+									</ul>
+									<button class="btn btn-primary" type="button" data-dismiss="modal">
+										<i class="fas fa-times"></i>
+										Close Project</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div tabindex="-1" class="portfolio-modal modal fade" id="portfolioModal3" role="dialog" aria-hidden="true" contenteditable="false">
+			<div class="modal-dialog" contenteditable="false">
+				<div class="modal-content" contenteditable="false">
+					<div class="close-modal" contenteditable="false" data-dismiss="modal">
+						<div class="lr" contenteditable="false">
+							<div class="rl" contenteditable="false"></div>
+						</div>
+					</div>
+					<div class="container" contenteditable="false">
+						<div class="row" contenteditable="false">
+							<div class="col-lg-8 mx-auto" contenteditable="false">
+								<div class="modal-body" contenteditable="false">
+									<!-- Project Details Go Here -->
+									<h2 class="text-uppercase" contenteditable="false">Project Name</h2>
+									<p class="item-intro text-muted" contenteditable="false">Lorem ipsum dolor sit amet consectetur.</p>
+									<img class="img-fluid d-block mx-auto" alt="" src="img/portfolio/1.jpg">
+									<p contenteditable="false">Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+									<ul class="list-inline">
+										<li>Date: January 2017</li>
+										<li>Client: Threads</li>
+										<li>Category: Illustration</li>
+									</ul>
+									<button class="btn btn-primary" type="button" data-dismiss="modal">
+										<i class="fas fa-times"></i>
+										Close Project</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Team -->
+		<section class="bg-light page-section" id="team">
+			<div class="container" contenteditable="false">
+				<div class="row" contenteditable="false">
+					<div class="col-lg-12 text-center" contenteditable="false">
+						<h2 class="section-heading text-uppercase" contenteditable="false">Hey :)</h2>
+						<h3 class="section-subheading text-muted" contenteditable="false">it's nice to meet you.</h3>
+					</div>
+				</div>
+				<div class="row" contenteditable="false">
+					<div class="col-sm-12" contenteditable="false">
+						<div class="team-member" contenteditable="false">
+							<img class="mx-auto rounded-circle" src="img/donaprofile.jpg" alt="">
+							<h4>Dona Stavreva</h4>
+							<p class="text-muted" contenteditable="false">Freelance Illustrator</p>
+							<ul class="list-inline social-buttons">
+								<li class="list-inline-item">
+									<a href="#">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="#">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="https://www.instagram.com/donutstavrev">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" contenteditable="false">
+					<div class="col-lg-8 mx-auto text-center" contenteditable="false">
+						<p class="large text-muted" contenteditable="false">I have been drawing for as long as I can remember. I'm mostly self-taught in the field and if that isn't proof of my interest in art and my personality being self-driven, I don't know what is. I'm always up for a challenge and an opportunity to try and learn something new. Being the highly self-critical person that I am, I always strive to execute projects on a professional level.
+						I don't have much experience with comissions yet, but I believe I'm capable of producing original artwork.
+						I'm 18, just about to graduate high school and going into university for Illustration later this year.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Contact -->
+		<section class="page-section" id="order">
+			<div id="communication-logged-out" class="container" contenteditable="false" style="display: ;">
+				<div class="row" contenteditable="false">
+					<div class="col-lg-12 text-center" contenteditable="false">
+						<h2 class="section-heading text-uppercase" contenteditable="false">Pick our way of communication</h2>
+						<h3 class="section-subheading text-muted" contenteditable="false">Message me so we can discuss your idea! (No need to purchase anything yet, don't worry)</h3>
+					</div>
+				</div>
+				<div contenteditable="false">
+					<form id="default-login-form">
+						<div id="form-username-div" class="form-group" contenteditable="false">
+							<div contenteditable="false">
+								<input id="form-username" type="username" name="form-username" placeholder="Username..." class="form-username form-control">
+								<span></span>
+							</div>
+						</div>
+						<div id="form-password-div" class="form-group" contenteditable="false">
+							<div contenteditable="false">
+								<input id="form-password" type="password" name="form-password" placeholder="Password..." class="form-password form-control">
+								<span></span>
+							</div>
+						</div>
+						<div id="forgot-password" class="form-group text-right" contenteditable="false">
+							<a href="#" class="bold"> Forgot password?</a>
+						</div>
+
+						<div class="form-group" contenteditable="false">
+							<button id="btnSignIn" style="background-color:#cae8db" class="btn btn-warning form-control"><strong>Sign in</strong></button>
+						</div>
+
+						<div class="form-group" contenteditable="false">
+							<button id="btnSignUp" style="background-color:#cae8db" class="btn btn-warning form-control"><strong>Sign up</strong></button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-12 text-center" style="margin-top:1rem" contenteditable="false">
+				<button class="btn btn-primary btn-xl text-uppercase" id="savePageButton">Save Page</button>
+				<button class="btn btn-primary btn-xl text-uppercase" id="toggleGod">Switch GOD to On</button>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+
+			<div class="container" contenteditable="false">
+				<div class="row align-items-center" contenteditable="false">
+					<div class="col-md-4" contenteditable="false">
+						<span class="copyright">Copyright © Your Website 2019</span>
+					</div>
+					<div class="col-md-4" contenteditable="false">
+						<ul class="list-inline social-buttons">
+							<li class="list-inline-item">
+								<a href="#">
+									<i class="fab fa-twitter"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#">
+									<i class="fab fa-facebook-f"></i>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#">
+									<i class="fab fa-linkedin-in"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-4" contenteditable="false">
+						<ul class="list-inline quicklinks">
+							<li class="list-inline-item">
+								<a href="#">Privacy Policy</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#">Terms of Use</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+		<script src="js/common.js"></script>
+		<script src="js/responsive.js"></script>
+		<script src="js/login-default.js"></script>
+		<script src="js/contenteditable.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		<!-- Contact form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="js/agency.min.js"></script>
+
+
+
+
+
+
+	
+
+
+
+
+</body>
+</html>
