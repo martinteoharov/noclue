@@ -3,15 +3,16 @@ const fs          = require('fs');
 const secret      = fs.readFileSync('secret.txt');
 const jwt         = require('jsonwebtoken');
 
-
 const basicAuth = async (req, res, next) => {
 	// make authenticate path public
+	
 	if (req.path === '/users/authenticate') {
 		return next();
 	}
 	if (req.path === '/users/signUp') {
 		return next();
 	}
+	
 
 	// check for jwt auth header
 	if (!req.headers.jwt || req.headers.jwt.indexOf('jwt ') === -1) {

@@ -7,10 +7,8 @@ btnSubmit.onclick = (e) => {
 	const base64credentials = base64UserPass(formControl[0].value, formControl[1].value); //encrypt credentials
 
 	fetchPost('/users/authenticate', credentials).then((res) => {
-		console.log(res);
 		if(res.success){
 			newNoty('success', 'Logged in successfuly, redirecting..');
-			console.log(res);
 			localStorage.setItem('JWT', res.token);
 			localStorage.setItem('username', res.user.username);
 			setTimeout(() => window.location.href = '/', 1000);
@@ -20,5 +18,4 @@ btnSubmit.onclick = (e) => {
 		}
 
 	});
-	console.log('login:', base64credentials);
 }

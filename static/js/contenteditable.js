@@ -2,30 +2,24 @@ const btnToggleGod = document.getElementById('toggleGod');
 const btnSavePage  = document.getElementById('savePageButton');
 let godState = false; // get current god state by checking if btnToggleGod is editable
 let savingState = 0; // 0 - not saving currently, 1 - saving is initiated
-console.log(godState);
 
 const getHTML = () => {
-	console.log('getHTML:');
 	return $('html').html();
 }
 const savePage = (HTML) => {
-	console.log('savingState:', savingState);
 	fetchPostAuth('/users/saveHTML', {html: HTML}, localStorage['JWT']).then((res) => {
-		console.log(res);
 		if(res.success){
-			console.log('/users/saveHTML:', res.status);
-			newNoty('success', "index.html updated");
+			newNoty('success', res.message);
 			newNoty('success', 'GOD Mode: OFF');
 		}
 		else
-			newNoty('error', "You're not authorized to do that");
+			newNoty('error', res.message);
 
 		savingState = 0;
 	});
 }
 
 const toggleGodMode = (bool) => {
-	console.log(bool);
 	let str;
 	if(bool) 
 		str = "Switch GOD to Off";
@@ -50,14 +44,12 @@ const toggleGodMode = (bool) => {
 		document.getElementsByTagName('h2'),
 		document.getElementsByTagName('h3')]);
 
-	for(const i of paragraphs){
-		i.contentEditable = bool;
-	}
-	for(const i of headers){
-		i.contentEditable = bool;
-	}
-	for(const i of divs){
-		i.contentEditable = bool;
+	const editable = [paragraphs, headers, divs];
+	for(const m of editable){
+		for(const i of m){
+			i.contentEditable = bool;
+
+		}
 	}
 
 	godState = bool;
@@ -68,11 +60,10 @@ const toggleGodMode = (bool) => {
 }
 btnSavePage.onclick = () => {
 	if(savingState == 0){
-		console.log('btnSavePage:');
 		toggleGodMode(false);
 		deleteAllNoty();
 		savingState = 1;
-		setTimeout(() => savePage(getHTML()), 1000);
+		setTimeout(() => savePage(getHTML()), 3000);
 	}
 }
 btnToggleGod.onclick = () => {

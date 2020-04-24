@@ -1,26 +1,54 @@
-const btnLog = document.getElementById('logButton');
-const autoLogin = (jwt) => {
+
+// Responsive elements variables
+const btnLog         = document.getElementById('logButton');
+const loginForm      = document.getElementById('communication-logged-out');
+const loginChat      = document.getElementById('communication-logged-in');
+const saveBtn        = document.getElementById('savePageButton');
+const toggleGodBtn   = document.getElementById('toggleGod');
+
+const logSequence = (logged, user) => {
+	const {username, role} = user;
+
+	if(logged) {
+		btnLog.innerText = 'Log out';
+		btnLog.href = '/';
+		btnLog.onclick = () => {
+			localStorage['JWT'] = '';
+			localStorage['user'] = '';
+		}
+		if(username)
+			newNoty('success', 'Wellcome back, ' + username + '!');
+
+		if(role == 'admin'){
+			saveBtn.style.display = '';
+			toggleGodBtn.style.display = '';
+		}
+		loginChat.style.display   = '';
+		loginForm.classList.add('fade-out');
+		setTimeout(() => {loginForm.style.display = 'none';loginForm.classList.remove('fade-out')}, 1500);
+		initSocket();
+	}
+	else {
+
+		btnLog.innerText = 'Log in';
+		btnLog.href = '#default-login-form';
+
+		saveBtn.style.display = 'none';
+		toggleGodBtn.style.display = 'none';
+		loginForm.classList.remove('fade-out');
+		loginForm.style.display = '';
+		loginChat.style.display   = 'none';
+	}
+}
+const autoLogin = (jwt, res) => {
 	fetchPostAuth('/users/sessionCheck', {body: ''}, jwt).then((res) => {
 		console.log('autoLogin:', res);
-		if(res.success){
-			btnLog.innerText = 'Log out';
-			btnLog.href = '/';
-			btnLog.onclick = () => localStorage['JWT'] = '';
-			newNoty('success', 'Wellcome back, ' + res.user.user.username + '!');
-
-			const loginForm = document.getElementById('communication-logged-out');
-			loginForm.classList.add('fade-out');
-			setTimeout(() => loginForm.style.display = 'none', 1500);
-		}
-		else {
-			btnLog.innerText = 'Log in';
-			btnLog.href = '#default-login-form';
-		}
+		logSequence(res.success, res.user.user);
 	});
 }
-if(localStorage['JWT'] != '')
+if(localStorage['JWT'] != '' && localStorage['JWT'] != undefined){
 	autoLogin(localStorage['JWT']);
+}
 else {
-	btnLog.innerText = 'Log in';
-	btnLog.href = '#default-login-form';
+	logSequence(false, {username:null});
 }

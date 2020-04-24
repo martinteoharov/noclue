@@ -14,15 +14,8 @@ const signUp = (req, res, next) => {
 	        .then(token => token ? res.json(token) : res.status(400).json({ success: false }))
 		.catch(err => next(err));
 }
-
-const getAll = (req, res, next) => {
-	userService.getAll()
-		.then(users => console.log(users))
-		.catch(err => next(err));
-}
 // routes
 router.post('/authenticate', authenticate);
 router.post('/signUp', signUp);
-router.get('/', getAll);
 
 module.exports = router;

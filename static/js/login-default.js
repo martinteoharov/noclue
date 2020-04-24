@@ -1,5 +1,6 @@
 const btnSignIn = document.getElementById('btnSignIn');
 const btnSignUp = document.getElementById('btnSignUp');
+
 btnSignIn.onclick = (e) => {
 	e.preventDefault();
 	if(document.getElementById('form-email'))
@@ -18,17 +19,17 @@ btnSignIn.onclick = (e) => {
 	fetchPost('/users/authenticate', credentials).then((res) => {
 		console.log(res);
 		if(res.success){
-			localStorage.setItem('JWT', res.token);
-			localStorage.setItem('username', res.user.username);
 			//setTimeout(() => window.location.href = '/', 1000);
+			localStorage.setItem('JWT', res.token);
+			localStorage.setItem('user', res.user);
+			localStorage.setItem('username', res.user.username);
 		}
 		else {
 			newNoty('error', 'Wrong Credentials');
 		}
 
-		autoLogin(localStorage['JWT']);
+		autoLogin(localStorage['JWT'], res);
 	});
-	console.log('login:', base64credentials);
 }
 
 btnSignUp.onclick = (e) => {
@@ -99,13 +100,8 @@ btnSignUp.onclick = (e) => {
 	if(pass){
 		//send a sign up request to server
 		const obj = { email: emailEl.value, username: usernameEl.value, password:passwordEl.value, firstName: firstNameEl.value, lastName: lastNameEl.value }
-		console.log('ready to send');
 		fetchPost('/users/signUp', obj).then((res) => {
 			console.log(res);
 		});
 	}
-
-	
-	
-
 }

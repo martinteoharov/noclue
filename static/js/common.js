@@ -1,6 +1,5 @@
 // < ---- AUTHENTICATION ---- >
 const fetchPost = async (url, body) => {
-        console.log('fetchPost');
         const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -13,7 +12,6 @@ const fetchPost = async (url, body) => {
 }
 
 const fetchGet = async (url) => {
-        console.log('fetchGet');
         const response = await fetch(url, {
                 method: "GET",
                 headers: {
@@ -25,7 +23,6 @@ const fetchGet = async (url) => {
 }
 
 const fetchPostAuth = async (url, body, JWT) => {
-        console.log('fetchPostAuth:');
         const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -84,7 +81,6 @@ const inputValidation = (type, val) => {
 // < ---- NOTY ---- >
 let noty = [];
 const deleteNoty = (_noty) => {
-	console.log('noty-array-before: ', noty);
 
 	// ...remove _noty from noty arr
 	const fNoty = noty.find(el => el == _noty);
@@ -94,16 +90,17 @@ const deleteNoty = (_noty) => {
 	// remove from noty arr
 	index > -1 ? noty.splice(index, 1) : null;
 
-
-	console.log('noty-array-after: ', noty);
 }
 const deleteAllNoty = () => {
-	for(const i of noty){
-		deleteNoty(i);
+	for(let i = 0; i < noty.length - 1; i ++){
+		if(!noty[i])
+			break;
+		noty[i].close();
+		noty.shift();
+		i--;
 	}
 }
 const newNoty = (type, message) => {
-        console.log('newNoty:');
 	const _noty = new Noty({
 		type: type,
 		layout: 'topRight',
