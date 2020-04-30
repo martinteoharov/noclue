@@ -122,6 +122,9 @@
 						<li class="nav-item">
 							<a class="nav-link js-scroll-trigger active" href="#order">Order</a>
 						</li>
+						<li id='dashboard-btn' class="nav-item" style='display:none;'>
+							<a class="nav-link js-scroll-trigger active" href="/dashboard.html">Dashboard</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link js-scroll-trigger" id="logButton" href="/">Log out</a>
 						</li>
@@ -417,6 +420,41 @@
 		</section>
 		<!-- Contact -->
 		<section class="page-section" id="order">
+			<!-- USER CHAT -->
+			<div id="communication-logged-in" class="container" contenteditable="false" style="display: ;">
+				<div class="row" contenteditable="false">
+					<div class="col-lg-12 text-center" contenteditable="false">
+						<h2 class="section-heading text-uppercase" contenteditable="false">Message me so we can discuss your idea</h2>
+					</div>
+				</div>
+				<div id='users' style='display: '>
+					<p id='users-p-template' style='display:none'></p>
+				</div>
+				<div class='chat-outer' style='display:none'>
+					<div id='chat' class='chat-inner js-scroll-trigger'>
+						<div id='chat-recieve-template' class="chat-container" style='display:none'>
+							<img src="/w3images/bandmember.jpg" alt="Avatar">
+							<p>Hello. How are you today?</p>
+							<span class="chat-time-right">11:00</span>
+						</div>
+
+						<div id='chat-send-template' class="chat-container chat-darker" style='display:none'>
+							<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
+							<p>Hey! I'm fine. Thanks for asking!</p>
+							<span class="chat-time-left">11:01</span>
+						</div>
+					</div>
+					<div class='chat-bottom'>
+						<input id='chat-input' placeholder='Your Message...' id='chat-input-template' class="chat-input">
+						</input>
+						<button id='chat-submit' class="btn btn-primary chat-button">Send</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 text-center" style="margin-top:1rem" contenteditable="false">
+				<button class="btn btn-primary btn-xl text-uppercase" id="savePageButton">Save Page</button>
+				<button class="btn btn-primary btn-xl text-uppercase" id="toggleGod">Switch GOD to On</button>
+			</div>
 			<div id="communication-logged-out" class="container" contenteditable="false" style="display: none;">
 				<div class="row" contenteditable="false">
 					<div class="col-lg-12 text-center" contenteditable="false">
@@ -452,41 +490,6 @@
 
 					</form>
 				</div>
-			</div>
-			<!-- USER CHAT -->
-			<div id="communication-logged-in" class="container" contenteditable="false" style="display: ;">
-				<div class="row" contenteditable="false">
-					<div class="col-lg-12 text-center" contenteditable="false">
-						<h2 class="section-heading text-uppercase" contenteditable="false">Message me so we can discuss your idea</h2>
-					</div>
-				</div>
-				<div id='users' style='display: '>
-					<p id='users-p-template' style='display:none'></p>
-				</div>
-				<div class='chat-outer' style='display:none'>
-					<div id='chat' class='chat-inner js-scroll-trigger'>
-						<div id='chat-recieve-template' class="chat-container" style='display:none'>
-							<img src="/w3images/bandmember.jpg" alt="Avatar">
-							<p>Hello. How are you today?</p>
-							<span class="chat-time-right">11:00</span>
-						</div>
-
-						<div id='chat-send-template' class="chat-container chat-darker" style='display:none'>
-							<img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
-							<p>Hey! I'm fine. Thanks for asking!</p>
-							<span class="chat-time-left">11:01</span>
-						</div>
-					</div>
-					<div class='chat-bottom'>
-						<input id='chat-input' placeholder='Your Message...' id='chat-input-template' class="chat-input">
-						</input>
-						<button id='chat-submit' class="btn btn-primary chat-button">Send</button>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-12 text-center" style="margin-top:1rem" contenteditable="false">
-				<button class="btn btn-primary btn-xl text-uppercase" id="savePageButton">Save Page</button>
-				<button class="btn btn-primary btn-xl text-uppercase" id="toggleGod">Switch GOD to On</button>
 			</div>
 		</section>
 

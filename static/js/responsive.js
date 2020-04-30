@@ -5,6 +5,7 @@ const loginForm      = document.getElementById('communication-logged-out');
 const loginChat      = document.getElementById('communication-logged-in');
 const saveBtn        = document.getElementById('savePageButton');
 const toggleGodBtn   = document.getElementById('toggleGod');
+const btnDashboard   = document.getElementById('dashboard-btn');
 
 const logSequence = (logged, user) => {
 	const {username, role} = user;
@@ -22,7 +23,9 @@ const logSequence = (logged, user) => {
 		if(role == 'admin'){
 			saveBtn.style.display = '';
 			toggleGodBtn.style.display = '';
+			btnDashboard.style.display = '';
 		}
+
 		loginChat.style.display   = '';
 		loginForm.classList.add('fade-out');
 		setTimeout(() => {loginForm.style.display = 'none';loginForm.classList.remove('fade-out')}, 1500);
@@ -34,6 +37,7 @@ const logSequence = (logged, user) => {
 		btnLog.href = '#default-login-form';
 
 		saveBtn.style.display = 'none';
+		btnDashboard.style.display = 'none';
 		toggleGodBtn.style.display = 'none';
 		loginForm.classList.remove('fade-out');
 		loginForm.style.display = '';
@@ -42,7 +46,7 @@ const logSequence = (logged, user) => {
 }
 const autoLogin = (jwt, res) => {
 	fetchPostAuth('/users/sessionCheck', {body: ''}, jwt).then((res) => {
-		console.log('autoLogin:', res);
+		console.log('autoLogin:', res.user.user);
 		logSequence(res.success, res.user.user);
 	});
 }

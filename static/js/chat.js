@@ -94,6 +94,10 @@ const initUsersDom = (users) => {
 	chatDOM.parentNode.style.display  = 'none';
 	usersDOM.style.display = '';
 
+	//if a user is logged automatically init chat with dona
+	if(users[0].username === 'donastavreva')
+		initChatDom(users[0]);
+
 	if(users.length == 1){
 		const pClone = template.usersP.cloneNode(true);
 		pClone.style.display = '';

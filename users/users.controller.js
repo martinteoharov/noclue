@@ -5,7 +5,7 @@ const userService = require('./user.service.js');
 
 const authenticate = (req, res, next) => {
 	userService.authenticate(req.body)
-	        .then(token => token ? res.json(token) : res.status(400).json({ success: false }))
+	        .then(user => user ? res.json(user) : res.status(400).json({ success: false }))
 
 		.catch(err => next(err));
 }
